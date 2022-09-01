@@ -1,0 +1,27 @@
+type = "checkout_ui"
+name = "coins-checkout-ui-extension"
+
+
+extension_points = [
+  'Checkout::Dynamic::Render',
+  'Checkout::Reductions::RenderBefore',
+  'Checkout::Contact::RenderAfter'
+]
+
+# [[metafields]]
+# namespace = "my-namespace"
+# key = "my-key"
+
+# [[metafields]]
+# namespace = "my-namespace"
+# key = "my-key-2"
+
+# Read more on extension settings at https://shopify.dev/api/checkout-extensions/checkout/configuration
+# [[settings.fields]]
+# key = "heading"
+# name = "Heading"
+# type = "single_line_text_field"
+
+[capabilities]
+network_access = true
+# block_progress = true

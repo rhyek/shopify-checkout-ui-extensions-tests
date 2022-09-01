@@ -1,0 +1,74 @@
+after creating app
+Welcome. Let’s get started by naming your app. You can change it later.
+✔ Your app's name? · tyb-gateway
+✔ Which template would you like to use? · node
+✔ Downloaded template from https://github.com/Shopify/shopify-app-template-node#cli_th
+ree
+✔ App initialized
+✔ Liquid parsed
+✔ Updated package.json
+✔ Dependencies installed with pnpm
+✔ Installed dependencies in /
+✔ Installed dependencies in /web/
+✔ Installed dependencies in /web/frontend/
+✔ Completed clean up
+✔ Git repository initialized
+
+tyb-gateway is ready for you to build! Remember to cd tyb-gateway
+Check the setup instructions in your README file
+To preview your project, run pnpm run dev
+To add extensions, run pnpm run scaffold extension
+For more details on all that you can build, see the docs: shopify.dev (​https://shopify.dev​) ✨
+
+For help and a list of commands, enter pnpm run
+
+how to build a checkout ui extension: https://youtu.be/18rGm1ndMaI?t=285
+
+shopify cli commands: https://shopify.dev/apps/tools/cli/commands
+
+shopify roadmap: https://shopify.dev/apps/checkout#product-roadmap
+
+general info links:
+  - ui extensions github discussions: https://github.com/Shopify/ui-extensions/discussions/368
+  - customer authentication with http requests to external api: https://github.com/Shopify/ui-extensions/discussions/368#discussioncomment-3513609
+
+checkout ui extension placements happen during checkout editor by merchant: https://shopify.dev/apps/checkout/test-ui-extensions#test-the-extension-in-the-checkout-editor
+- for testing just append "?placement-reference=PAYMENT2" to url to see the extensions placed after 
+  method selection
+
+store config:
+1. create partner account
+2. create development store with developer preview for checkout extensions enabled
+3. in store set up test payments /admin/settings/payments
+4. need to invite a separate account as staff member both to the store and org (partner account dashboard) and use that staff account for developing:
+  - https://github.com/Shopify/cli/issues/197#issuecomment-1232194932
+
+development project config:
+- yarn create @shopify/app  
+- yarn shopify app scaffold extension
+  - select checkout ui extension
+  - extension name
+  - typescript react
+- must add yarn resolutions ("@types/react": "17.0.30"):
+  - https://github.com/Shopify/remote-ui/issues/153
+  - https://github.com/facebook/react/issues/24304#issuecomment-1098931274
+  - https://github.com/Shopify/cli/issues/395
+- allow extension network access in configuration file:
+  - https://shopify.dev/api/checkout-extensions/checkout/configuration#settings-definition
+- yarn dev (will guide you through shopify partner account login and ngrok auth token setup)
+
+react components:
+- use: @shopify/checkout-ui-extensions-react
+- docs: https://shopify.dev/api/checkout-extensions/checkout/components
+- docs include link to figma project for designing: https://www.figma.com/community/file/1121180079120732846
+
+react hooks:
+- https://shopify.dev/api/checkout-extensions/checkout/extension-points/api#react-hooks
+
+order metadata:
+- https://github.com/Shopify/ui-extensions/discussions/368#discussioncomment-3059711
+
+shopify functions:
+  - available to all merchants, not just plus
+  - create one using shopify cli: yarn shopify app scaffold extension
+  - install rust: https://www.rust-lang.org/tools/install
