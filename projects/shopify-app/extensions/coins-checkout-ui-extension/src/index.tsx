@@ -77,7 +77,7 @@ function App() {
     // this will run when the user does an action like click "Pay now"
     console.log('can block progress', interceptor.canBlockProgress);
 
-    const { coins } = await updateWallet();
+    const { coins } = await updateWallet(); // http request
 
     if (Number(formCoins) > coins) {
       return {
@@ -87,13 +87,14 @@ function App() {
           setFormError('No funds');
         },
       };
+    } else {
+      return {
+        behavior: 'allow',
+        perform: () => {
+          setFormError(null);
+        },
+      };
     }
-    return {
-      behavior: 'allow',
-      perform: () => {
-        setFormError(null);
-      },
-    };
   });
 
   useEffect(() => {
