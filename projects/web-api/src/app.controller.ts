@@ -27,4 +27,11 @@ export class AppController {
     console.log(url);
     return resp.json({ url });
   }
+
+  @Get('wallet')
+  getWallet() {
+    return {
+      coins: 5000,
+    };
+  }
 }

@@ -15,6 +15,7 @@
     "@shopify/app": "3.9.0",
     "@shopify/checkout-ui-extensions-react": "^0.18.0",
     "@shopify/cli": "3.9.0",
+    "ky": "^0.31.3",
     "react": "^17.0.0"
   },
   "author": "carlos",

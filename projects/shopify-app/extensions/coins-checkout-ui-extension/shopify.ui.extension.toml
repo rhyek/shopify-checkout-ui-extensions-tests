@@ -24,4 +24,4 @@ extension_points = [
 
 [capabilities]
 network_access = true
-# block_progress = true
+block_progress = true

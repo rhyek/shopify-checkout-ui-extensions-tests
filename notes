@@ -56,6 +56,8 @@ development project config:
 - allow extension network access in configuration file:
   - https://shopify.dev/api/checkout-extensions/checkout/configuration#settings-definition
 - yarn dev (will guide you through shopify partner account login and ngrok auth token setup)
+- store password at:
+  https://rhyeks-test-store-1.myshopify.com/admin/online_store/preferences
 
 react components:
 - use: @shopify/checkout-ui-extensions-react
@@ -69,6 +71,33 @@ order metadata:
 - https://github.com/Shopify/ui-extensions/discussions/368#discussioncomment-3059711
 
 shopify functions:
+  - https://shopify.dev/api/functions
+  - part of current checkout extensibility preview: https://shopify.dev/api/release-notes/developer-previews#checkout-extensibility-developer-preview
   - available to all merchants, not just plus
+  - need to be written in languages that compile to WebAssembly (like https://www.assemblyscript.org/)
   - create one using shopify cli: yarn shopify app scaffold extension
   - install rust: https://www.rust-lang.org/tools/install
+
+
+development project config:
+- yarn create @shopify/app  
+- yarn shopify app scaffold extension
+  - select checkout ui extension
+  - extension name
+  - typescript react
+- must add yarn resolutions ("@types/react": "17.0.30"):
+  - https://github.com/Shopify/remote-ui/issues/153
+  - https://github.com/facebook/react/issues/24304#issuecomment-1098931274
+  - https://github.com/Shopify/cli/issues/395
+- allow extension network access in configuration file:
+  - https://shopify.dev/api/checkout-extensions/checkout/configuration#settings-definition
+- yarn dev (will guide you through shopify partner account login and ngrok auth token setup)
+- store password at:
+  https://rhyeks-test-store-1.myshopify.com/admin/online_store/preferences
+
+development:
+  projects/shopify-app
+    - `yarn dev`
+  projects/web-api
+    - `pnpm start:dev`
+    - `ngrok http 5800`
